@@ -1,0 +1,203 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+.cactus-classical-serif-regular {
+  font-family: "Cactus Classical Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+    background-color: #FFFFFF;
+}
+
+body.hide-overflow {
+    overflow: hidden;
+}
+
+.text-page {
+    background-color: white;  /* Solid white background */
+    color: #00039e;  /* Text color */
+    padding: 20px;  /* Padding for spacing */
+    font-family: Cactus Classical Serif, serif;  /* Font styling */
+    height: 100%;  /* Ensure the page takes up the full height */
+    box-sizing: border-box;  /* Include padding in the element's total width and height */
+    position: relative;  /* Position relative to ensure z-index works */
+    z-index: 1;  /* Make sure this element is above other content */
+  text-align: justify;
+
+}
+
+.eb-garamond-<page> {
+  font-family: Cactus Classical Serif, serif;
+  font-optical-sizing: auto;
+  font-weight: <400>;
+  font-style: normal;
+}
+
+.text-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;  /* White background for the overlay */
+    z-index: -1;  /* Place it behind the text */
+    opacity: 1;  /* Full opacity */
+}
+
+/* helpers */
+.h2{
+  font-style: italic;
+  font-size: 14;
+  font-family: Cactus Classical Serif, serif;
+  margin-left: 20px;
+  margin-right: 20px;
+    color: #00039e;  
+  text-align: justify;
+margin-top: 30px;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+.notation{
+  font-size: 10;
+  font-family: Cactus Classical Serif, serif;
+  margin-left: 20px;
+  margin-right: 20px;
+    color: #00039e;  
+  text-align: justify;
+  margin-top:100px;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+.paragraph_left{
+  font-size: 11;
+  font-family: Cactus Classical Serif, serif;
+  position: absolute;
+  color: #000000;  
+  text-align: left;
+}
+.paragraph_right{
+  font-size: 11;
+  font-family: Cactus Classical Serif, serif;
+  position: absolute;
+  color: #000000;  
+  text-align: right;
+  right: 0px;
+}
+
+.paragraph_chi{
+  font-size: 11;
+  font-family: Cactus Classical Serif, serif;
+  position: absolute;
+  color: #000000;  
+  text-align: right;
+  margin-left: 210px;
+  margin-top: 290px;
+  margin-right: auto;
+}
+
+.book-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.book-container {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+
+/* book */
+
+.book {
+    margin: 0 auto;
+    width: 90%;
+    height: 90%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.book .page {
+    height: 100%;
+    background-color: white;
+}
+
+.book .page img {
+    max-width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+/* Spread image CSS */
+.page.spread {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    background-color: white; /* Ensure the background is white */
+}
+
+.spread-image {
+    background-size: cover;  /* Adjust to cover the entire area */
+    background-position: center;  /* Center the image as a base */
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;  /* Prevent image from repeating */
+}
+
+.spread-image.left-side {
+    background-position: calc(0% + 0px) center; /* Align the right edge of the left image to the fold */
+}
+
+.spread-image.right-side {
+    background-position: calc(100% - 110px) center; /* Align the left edge of the right image to the fold */
+    background-color: white; /* Ensure any extra space is white */
+    overflow: hidden; /* Hide any overflow beyond the intended area */
+}
+/* Flip Card CSS */
+.flip-container {
+    perspective: 1000px;
+}
+
+.flip-card {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform-origin: center center; /* Center the flip origin */
+    transition: transform 1s;
+    cursor: pointer;
+    margin: 0 auto; /* Center the card horizontally within its container */
+}
+
+.flip-card.flipped {
+    transform: rotateY(-180deg);
+}
+
+.flip-card .flip-card-front, .flip-card .flip-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    background-size: cover;  /* Ensure the image covers the entire window */
+}
+
+.flip-card .flip-card-front {
+    background: url('middle-image01.jpg') no-repeat center;
+    background-size: cover;
+}
+
+.flip-card .flip-card-back {
+    background: url('middle-image02.jpg') no-repeat center;
+    background-size: cover;
+    transform: rotateY(180deg);
+}

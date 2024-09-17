@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipbook Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="book-wrapper">
+  <div class="book-container">
+    <div id="flipbook" class="book">
+      <!-- First Page (Cover) -->
+      <div class="page">
+        <img src="tureeng.gif" alt="Cover Page"> </div>
+            <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('image1.jpg');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('image1.jpg');"></div>
+    </div>
+    
+    <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('casio/casio_bird.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('casio/casio_bird.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('casio/casio_bird2.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('casio/casio_bird2.gif');"></div>
+    </div>
+            <div class="page" >
+        <div class="page" style="background-image: url('sequence1.gif');"></div>
+    </div>
+                <div class="page" >
+        <div class="page" style="background-image: url('sequence2.gif');"></div>
+    </div>
+    
+        <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('home/home_sequence_1.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('home/home_sequence_1.gif');"></div>
+    </div>
+        <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('home/home_sequence_2.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('home/home_sequence_2.gif');"></div>
+    </div>
+        <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('home/home_sequence_3.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('home/home_sequence_3.gif');"></div>
+    </div>
+        <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('home/home_sequence_4.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('home/home_sequence_4.gif');"></div>
+    </div>
+                <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('flower01.gif');"></div>
+    </div>
+                <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('flower01.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('B1.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('B1.gif');"></div>
+    </div>
+        <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('B2.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('B2.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('Road_03.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('Road_03.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('Road_04.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('Road_04.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('Road_05.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('Road_05.gif');"></div>
+    </div>
+
+    <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('Road_14.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('Road_14.gif');"></div>
+    </div>
+        <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('jongchinst.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('jongchinst.gif');"></div>
+    </div>
+        <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('your-image-for-page4.jpg');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('your-image-for-page4.jpg');"></div>
+    </div>
+
+
+      <!-- Page 4 (Image + Pop-up Trigger) -->
+      <div class="page" id="page4">
+        <img src="your-image-for-page4.jpg" id="page4-img" alt="Page 4 Image" />
+      </div>
+      <div class="page spread">
+        <div class="spread-image left-side"></div>
+      </div>
+      <div class="page spread">
+        <div class="spread-image right-side"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'></script>
+<script src="path/to/turn.js"></script>
+</body>
+</html>
+
+
+<script src="scripts.js"></script>
