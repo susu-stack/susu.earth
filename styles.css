@@ -155,11 +155,11 @@ margin-top: 30px;
 }
 
 .spread-image.left-side {
-    background-position: calc(0% + 0px) center; /* Align the right edge of the left image to the fold */
+    background-position: calc(0% + 10px) center; /* Align the right edge of the left image to the fold */
 }
 
 .spread-image.right-side {
-    background-position: calc(100% - 110px) center; /* Align the left edge of the right image to the fold */
+    background-position: calc(100% - 10px) center; /* Align the left edge of the right image to the fold */
     background-color: white; /* Ensure any extra space is white */
     overflow: hidden; /* Hide any overflow beyond the intended area */
 }
