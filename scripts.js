@@ -85,7 +85,7 @@ $(document).ready(function() {
 
 window.onload = function() {
     // Define the URL for the new script or page
-    const url = '/Users/susu/Documents/NEW BOOK/clock/index.html';  // Update this path to match your file system
+    const url = 'clockindex.html';  // Update this path to match your file system
 
     // Define the dimensions and position of the pop-up window
     const width = 500;
