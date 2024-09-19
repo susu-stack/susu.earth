@@ -84,184 +84,63 @@ $(document).ready(function() {
 });
 
 window.onload = function() {
-    // Define the URL for the new script or page
-    const url = 'clock.html';  // Update this path to match your file system
+    // Get screen dimensions
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
 
-    // Define the dimensions and position of the pop-up window
-    const width = 500;
-    const height = 400;
-    const left = 100;
-    const top = 100;
+        // Open the first pop-up for the clock (top right corner)
+    const letterUrl = 'flip.html';
+    const letterWidth = 500;
+    const letterHeight = 775;
 
-    // Open a new pop-up window with the specified dimensions and location
-    const popUpWindow = window.open(url, 'popUpWindow', `width=${width},height=${height},left=${left},top=${top}`);
+    // Calculate positions to snap to the top right corner
+    const letterLeft = 60;
+    const letterTop = 200;  // Top of the screen
 
-    // Ensure the pop-up is in focus (optional)
-    if (popUpWindow) {
-        popUpWindow.focus();
+    const letterWindow = window.open(letterUrl, 'LetterWindow', `width=${letterWidth},height=${letterHeight},left=${letterLeft},top=${letterTop}`);
+
+    if (letterWindow) {
+        letterWindow.focus();
     } else {
         alert("Pop-up blocked. Please allow pop-ups for this site.");
     }
-};
 
-    // Pop-up Window Logic for Flip Sequence on Page 4
-function openFlipSequencePopup() {
-    const a4AspectRatio = 210 / 297; // A4 ratio in portrait (width/height)
-    
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
 
-    // Calculate the ideal width and height for the pop-up window
-    let popupWidth = Math.min(420, screenWidth * 0.9); // Limit width to 420px or 90% of screen width
-    let popupHeight = popupWidth / a4AspectRatio;
+    // Open the second pop-up for the candle (bottom right corner)
+    const candleUrl = 'candle.html';
+    const candleWidth = 500;
+    const candleHeight = 700;
 
-    if (popupHeight > screenHeight * 0.9) {
-        popupHeight = Math.min(594, screenHeight * 0.9); // Limit height to 594px or 90% of screen height
-        popupWidth = popupHeight * a4AspectRatio;
+    // Calculate positions to snap to the bottom right corner
+    const candleLeft = screenWidth - candleWidth;
+    const candleTop = screenHeight - candleHeight;  // Bottom of the screen
+
+    const candleWindow = window.open(candleUrl, 'candleWindow', `width=${candleWidth},height=${candleHeight},left=${candleLeft},top=${candleTop}`);
+
+    if (candleWindow) {
+        candleWindow.focus();
+    } else {
+        alert("Pop-up blocked. Please allow pop-ups for this site.");
     }
 
-    const popupLeft = (screenWidth - popupWidth) / 2;
-    const popupTop = (screenHeight - popupHeight) / 2;
+    // Open the first pop-up for the clock (top right corner)
+    const clockUrl = 'clock.html';
+    const clockWidth = 500;
+    const clockHeight = 375;
 
-    const popupWindow = window.open('', '', `width=${popupWidth},height=${popupHeight},top=${popupTop},left=${popupLeft}`);
-    popupWindow.document.write(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Flip Sequence</title>
-            <style>
-                body, html {
-                    margin: 0;
-                    padding: 0;
-                    width: 100%;
-                    height: 100%;
-                    overflow: hidden;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background: #000; /* Background color to match the image */
-                }
-                .flip-container {
-                    perspective: 1000px;
-                    width: 100%;
-                    height: 100%;
-                }
-                .flip-card {
-                    width: 100%;
-                    height: 100%;
-                    position: relative;
-                    transform-style: preserve-3d;
-                    transform-origin: center center;
-                    transition: transform 1s;
-                    cursor: pointer;
-                }
-                .flip-card .flip-card-front, .flip-card .flip-card-back {
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    backface-visibility: hidden;
-                    background-size: contain;  /* Ensure the image fits within the window */
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
-                .flip-card .flip-card-front {
-                    background: url('middle-image01.jpg') no-repeat center;
-                    background-size: contain;
-                }
-                .flip-card .flip-card-back {
-                    background: url('middle-image02.jpg') no-repeat center;
-                    background-size: contain;
-                    transform: rotateY(180deg);
-                }
-            </style>
-        </head>
-        <body>
-            <div class="flip-container">
-                <div class="flip-card" id="popupFlipCard">
-                    <div class="flip-card-front"></div>
-                    <div class="flip-card-back"></div>
-                </div>
-            </div>
-            <script>
-                let state = 0;
-                const flipCard = document.getElementById('popupFlipCard');
-                const frontFace = flipCard.querySelector('.flip-card-front');
-                const backFace = flipCard.querySelector('.flip-card-back');
+    // Calculate positions to snap to the top right corner
+    const clockLeft = screenWidth - clockWidth;
+    const clockTop = 0;  // Top of the screen
 
-                function playSequence(images, callback) {
-                    let index = 0;
-                    const interval = setInterval(() => {
-                        if (index < images.length) {
-                            frontFace.style.backgroundImage = \`url(\${images[index]})\`;
-                            index++;
-                        } else {
-                            clearInterval(interval);
-                            if (callback) callback();
-                        }
-                    }, 500);
-                }
+    const clockWindow = window.open(clockUrl, 'clockWindow', `width=${clockWidth},height=${clockHeight},left=${clockLeft},top=${clockTop}`);
 
-                function startSequence1() {
-                    const sequence1Images = [
-                        'sequence1-image-1.jpg',
-                        'sequence1-image-2.jpg',
-                        'sequence1-image-3.jpg',
-                        'sequence1-image-4.jpg',
-                        'sequence1-image-5.jpg',  // New images
-                        'sequence1-image-6.jpg',
-                        'sequence1-image-7.jpg',
-                        'sequence1-image-8.jpg'
-                    ];
-                    playSequence(sequence1Images, () => {
-                        frontFace.style.backgroundImage = 'url("middle-image01.jpg")';
-                        state = 1;
-                    });
-                }
+    if (clockWindow) {
+        clockWindow.focus();
+    } else {
+        alert("Pop-up blocked. Please allow pop-ups for this site.");
+    }
 
-                function startSequence2() {
-                    const sequence2Images = [
-                        'sequence2-image-1.jpg',
-                        'sequence2-image-2.jpg',
-                        'sequence2-image-3.jpg',
-                        'sequence2-image-4.jpg',
-                        'sequence2-image-5.jpg',  // New images
-                        'sequence2-image-6.jpg',
-                        'sequence2-image-7.jpg',
-                        'sequence2-image-8.jpg'
-                    ];
-                    playSequence(sequence2Images, resetPopup);
-                }
+};
 
-                function resetPopup() {
-                    state = 0;
-                    flipCard.classList.remove('flipped');
-                    frontFace.style.backgroundImage = 'url("initial-image.jpg")';
-                }
 
-                flipCard.addEventListener('click', () => {
-                    if (state === 0) {
-                        startSequence1();
-                    } else if (state === 1) {
-                        flipCard.classList.add('flipped');
-                        state = 2;
-                    } else if (state === 2) {
-                        flipCard.classList.remove('flipped');
-                        state = 3;
-                    } else if (state === 3) {
-                        startSequence2();
-                    }
-                });
 
-                resetPopup();
-            </script>
-        </body>
-        </html>
-    `);
-    popupWindow.document.close();
-}
-
-    $('#page4-img').on('click', function() {
-        openFlipSequencePopup();
-    });
