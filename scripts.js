@@ -88,24 +88,6 @@ window.onload = function() {
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
 
-        // Open the first pop-up for the clock (top right corner)
-    const letterUrl = 'flip.html';
-    const letterWidth = 500;
-    const letterHeight = 775;
-
-    // Calculate positions to snap to the top right corner
-    const letterLeft = 60;
-    const letterTop = 200;  // Top of the screen
-
-    const letterWindow = window.open(letterUrl, 'LetterWindow', `width=${letterWidth},height=${letterHeight},left=${letterLeft},top=${letterTop}`);
-
-    if (letterWindow) {
-        letterWindow.focus();
-    } else {
-        alert("Pop-up blocked. Please allow pop-ups for this site.");
-    }
-
-
     // Open the second pop-up for the candle (bottom right corner)
     const candleUrl = 'candle.html';
     const candleWidth = 500;
