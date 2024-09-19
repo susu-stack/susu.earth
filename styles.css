@@ -155,7 +155,7 @@ margin-top: 30px;
 }
 
 .spread-image.left-side {
-    background-position: calc(0% + 10px) center; /* Align the right edge of the left image to the fold */
+    background-position: calc(0% + 25px) center; /* Align the right edge of the left image to the fold */
 }
 
 .spread-image.right-side {
