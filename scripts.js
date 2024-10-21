@@ -88,41 +88,22 @@ window.onload = function() {
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
 
-    // Open the second pop-up for the candle (bottom right corner)
-    const candleUrl = 'candle.html';
-    const candleWidth = 500;
-    const candleHeight = 700;
+    // Open the second pop-up for the prophecy (bottom right corner)
+    const prophecyUrl = 'prophecy.html';
+    const prophecyWidth = 550;
+    const prophecyHeight = 980;
 
     // Calculate positions to snap to the bottom right corner
-    const candleLeft = screenWidth - candleWidth;
-    const candleTop = screenHeight - candleHeight;  // Bottom of the screen
+    const prophecyLeft = screenWidth - prophecyWidth;
+    const prophecyTop = screenHeight - prophecyHeight;  // Corrected variable name
 
-    const candleWindow = window.open(candleUrl, 'candleWindow', `width=${candleWidth},height=${candleHeight},left=${candleLeft},top=${candleTop}`);
+    const prophecyWindow = window.open(prophecyUrl, 'prophecyWindow', `width=${prophecyWidth},height=${prophecyHeight},left=${prophecyLeft},top=${prophecyTop}`);
 
-    if (candleWindow) {
-        candleWindow.focus();
+    if (prophecyWindow) {
+        prophecyWindow.focus();
     } else {
         alert("Pop-up blocked. Please allow pop-ups for this site.");
     }
-
-    // Open the first pop-up for the clock (top right corner)
-    const clockUrl = 'clock.html';
-    const clockWidth = 500;
-    const clockHeight = 375;
-
-    // Calculate positions to snap to the top right corner
-    const clockLeft = screenWidth - clockWidth;
-    const clockTop = 0;  // Top of the screen
-
-    const clockWindow = window.open(clockUrl, 'clockWindow', `width=${clockWidth},height=${clockHeight},left=${clockLeft},top=${clockTop}`);
-
-    if (clockWindow) {
-        clockWindow.focus();
-    } else {
-        alert("Pop-up blocked. Please allow pop-ups for this site.");
-    }
-
 };
-
 
 
