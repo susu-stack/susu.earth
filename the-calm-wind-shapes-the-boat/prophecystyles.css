@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Cactus Classical Serif, serif;
+  background-color: #f0f0f0;
+}
+
+.cactus-classical-serif-regular {
+  font-family: "Cactus Classical Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+#text-container {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 20px;
+  color: black;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  pointer-events: none; /* Prevent interaction with the video */
+}
+
+/* Transparent floating video on top-right */
+.floating-video {
+  position: fixed;
+  top: 0px;
+  right: 10px;
+  width: 300px;  /* Adjust the size of the video */
+  opacity: 1;  /* Set transparency */
+  z-index: 9999; /* Make sure the video stays on top */
+  pointer-events: none; /* Prevent interaction with the video */
+}
+
+/* Optional: If you want the video to maintain aspect ratio */
+.floating-video video {
+  width: 100%;
+  height: auto;
+}
