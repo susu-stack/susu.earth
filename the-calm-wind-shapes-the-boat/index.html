@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Autoplay Audio with JavaScript</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Calm Wind Shapes the Boat</title>
@@ -11,12 +12,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Background video element -->
+    <video id="background-video" autoplay loop>
+        <source src="soundtrack.webm" type="video/webm">
+        <source src="soundtrack.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
 <div class="book-wrapper">
   <div class="book-container">
     <div id="flipbook" class="book">
       <!-- First Page (Cover) -->
       <div class="page">
         <img src="tureeng.gif" alt="Cover Page"> </div>
+
+<div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('sequence1.gif');"></div>
+        </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('');"></div>
+    </div>    
 
     <div class="page spread">
         <div class="spread-image left-side" style="background-image: url('image1.JPG');"></div>
@@ -75,7 +90,12 @@
         <div class="spread-image right-side" style="background-image: url('Road_14.gif');"></div>
     </div>
 
-
+    <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('jar.gif');"></div>
+    </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('jar.gif');"></div>
+    </div>
 
     <div class="page spread">
         <div class="spread-image left-side" style="background-image: url('Rain_01.gif');"></div>
@@ -209,6 +229,13 @@
         </div>
         
         <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('star01.gif');"></div>
+        </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('star01.gif');"></div>
+        </div> 
+        
+        <div class="page spread">
         <div class="spread-image left-side" style="background-image: url('rain.gif');"></div>
         </div>
     <div class="page spread">
@@ -234,10 +261,10 @@
         </div>
 
             <div class="page spread">
-        <div class="spread-image left-side" style="background-image: url('b1.gif');"></div>
+        <div class="spread-image left-side" style="background-image: url('fish.gif');"></div>
     </div>
     <div class="page spread">
-        <div class="spread-image right-side" style="background-image: url('b1.gif');"></div>
+        <div class="spread-image right-side" style="background-image: url('fish.gif');"></div>
     </div>
             <div class="page spread">
         <div class="spread-image left-side" style="background-image: url('garden00.gif');"></div>
@@ -294,6 +321,12 @@
     <div class="page spread">
         <div class="spread-image right-side" style="background-image: url('Puli_06.gif');"></div>
         </div>
+            <div class="page spread">
+        <div class="spread-image left-side" style="background-image: url('walk.gif');"></div>
+        </div>
+    <div class="page spread">
+        <div class="spread-image right-side" style="background-image: url('walk.gif');"></div>
+        </div>
     <div class="page spread">
         <div class="spread-image left-side" style="background-image: url('Puli_07.gif');"></div>
         </div>
@@ -314,10 +347,10 @@
         </div>
     
     <div class="page spread">
-        <div class="spread-image left-side" style="background-image: url('stars.gif');"></div>
+        <div class="spread-image left-side" style="background-image: url('star02.gif');"></div>
         </div>
     <div class="page spread">
-        <div class="spread-image right-side" style="background-image: url('stars.gif');"></div>
+        <div class="spread-image right-side" style="background-image: url('star02.gif');"></div>
         </div>
  
         <div class="page spread">
@@ -365,6 +398,5 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'></script>
 <script src="path/to/turn.js"></script>
 <script src="scripts.js"></script>
-
 </body>
 </html>

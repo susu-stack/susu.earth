@@ -14,7 +14,17 @@ body {
 body.hide-overflow {
     overflow: hidden;
 }
-
+/* Background video styling */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;  /* Ensure the video stays behind other content */
+    object-fit: cover;  /* Ensures the video covers the entire background */
+    opacity: 0;  /* Optional: adjust transparency if needed */
+}
 .text-page {
     background-color: white;  /* Solid white background */
     color: #00039e;  /* Text color */

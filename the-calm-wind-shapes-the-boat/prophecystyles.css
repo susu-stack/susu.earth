@@ -3,31 +3,29 @@ body {
   padding: 0;
   font-family: Cactus Classical Serif, serif;
   background-color: #f0f0f0;
-}
-
-.cactus-classical-serif-regular {
-  font-family: "Cactus Classical Serif", serif;
-  font-weight: 400;
-  font-style: normal;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
-  width: 100vw;
-  height: 100vh;
-  overflow-y: auto;
+  width: 100vw;  /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
   padding: 20px;
+  box-sizing: border-box; /* Include padding and border in the element's width and height */
   background-color: #fff;
   border: 1px solid #ccc;
 }
 
 #text-container {
-  width: 100%;
+  width: calc(100% - 40px); /* Subtracting padding from width */
   padding: 10px 0;
   font-size: 20px;
   color: black;
-  white-space: pre-wrap;
+  white-space: pre-wrap; /* Ensure text wraps correctly */
   line-height: 1.5;
-  pointer-events: none; /* Prevent interaction with the video */
+  pointer-events: none; /* Prevent interaction */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  box-sizing: border-box; /* Include padding and borders in the width calculations */
 }
 
 /* Transparent floating video on top-right */
@@ -37,7 +35,7 @@ body {
   right: 10px;
   width: 300px;  /* Adjust the size of the video */
   opacity: 1;  /* Set transparency */
-  z-index: 9999; /* Make sure the video stays on top */
+  z-index: 9999; /* Ensure the video stays on top */
   pointer-events: none; /* Prevent interaction with the video */
 }
 
@@ -45,4 +43,10 @@ body {
 .floating-video video {
   width: 100%;
   height: auto;
+}
+
+.cactus-classical-serif-regular {
+  font-family: "Cactus Classical Serif", serif;
+  font-weight: 400;
+  font-style: normal;
 }
