@@ -1,0 +1,47 @@
+/* Reset all margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Make sure html and body take full viewport height and have no overflow */
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Ensure the video fills the viewport and is centered */
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%); /* Centers the video */
+}
+
+/* Center the clickable title */
+.centered-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensures it's on top of the video */
+}
+
+/* Style the clickable title */
+.title {
+    font-family: 'Arial', sans-serif;
+    font-size: 3rem;
+    text-decoration: none;
+    color: white;
+    mix-blend-mode: difference; /* Inverts the color based on the video underneath */
+    transition: color 0.3s ease;
+}
+
+.title:hover {
+    color: #f0f0f0; /* Optional: changes color on hover */
+}
