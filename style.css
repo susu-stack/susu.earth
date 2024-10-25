@@ -32,41 +32,42 @@ video {
     z-index: 1;
 }
 
-/* Style the clickable title */
+/* Style the clickable title (Italic) */
 .title {
     font-family: 'Arial', sans-serif;
-    font-size: 1.5rem;
-    text-decoration: none;
+    font-size: 1.7rem;
+    text-decoration: underline;
     color: white;
-    mix-blend-mode: difference;
-    transition: color 0.3s ease;
+    font-style: italic;
+    text-align: left;
 }
 
 .title:hover {
     color: #f0f0f0;
 }
 
-/* Style the additional instructions text */
+/* Style the additional instructions text (Left-aligned) */
 .additional-instructions {
     position: absolute;
     top: 60%; /* Position below the title */
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    text-align: center;
     font-family: 'Arial', sans-serif;
-    font-size: 1rem;
+    font-size: 0.8rem;
     z-index: 1;
+    max-width: 600px; /* Limit width for better layout */
 }
 
 .additional-instructions p {
     margin-bottom: 10px;
 }
 
-/* Style for the PNG image */
+/* Center the PNG image within the instructions */
 .instruction-image {
+    display: block;
+    margin: 20px auto 0 auto; /* Center the image horizontally */
     max-width: 400px;
     height: auto;
-    margin-top: 20px;
     opacity: 0.8; /* Optional: Adjust opacity for better blending */
 }
