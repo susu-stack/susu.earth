@@ -20,28 +20,53 @@ video {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    transform: translate(-50%, -50%); /* Centers the video */
+    transform: translate(-50%, -50%);
 }
 
 /* Center the clickable title */
 .centered-title {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1; /* Ensures it's on top of the video */
+    z-index: 1;
 }
 
 /* Style the clickable title */
 .title {
     font-family: 'Arial', sans-serif;
-    font-size: 3rem;
+    font-size: 1.5rem;
     text-decoration: none;
     color: white;
-    mix-blend-mode: difference; /* Inverts the color based on the video underneath */
+    mix-blend-mode: difference;
     transition: color 0.3s ease;
 }
 
 .title:hover {
-    color: #f0f0f0; /* Optional: changes color on hover */
+    color: #f0f0f0;
+}
+
+/* Style the additional instructions text */
+.additional-instructions {
+    position: absolute;
+    top: 60%; /* Position below the title */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.additional-instructions p {
+    margin-bottom: 10px;
+}
+
+/* Style for the PNG image */
+.instruction-image {
+    max-width: 400px;
+    height: auto;
+    margin-top: 20px;
+    opacity: 0.8; /* Optional: Adjust opacity for better blending */
 }
