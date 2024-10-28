@@ -10,6 +10,8 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    color: white;
 }
 
 /* Ensure the video fills the viewport and is centered */
@@ -26,48 +28,70 @@ video {
 /* Center the clickable title */
 .centered-title {
     position: absolute;
-    top: 30%;
+    top: 20%;  /* Position title higher */
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    text-align: center;
 }
 
-/* Style the clickable title (Italic) */
+/* Style the clickable title */
 .title {
     font-family: 'Arial', sans-serif;
-    font-size: 1.7rem;
+    font-size: 1.6rem;  /* Keep the size of the title */
     text-decoration: underline;
-    color: white;
     font-style: italic;
-    text-align: left;
+    color: white;
+    transition: color 0.3s ease;
 }
 
 .title:hover {
     color: #f0f0f0;
 }
 
-/* Style the additional instructions text (Left-aligned) */
+/* Style for the backup link (placed directly below the title) */
+.backup-link-container {
+    position: absolute;
+    top: 27%;  /* Place the backup link directly below the title */
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    font-size: 0.85rem;  /* Match the size of the instructions */
+}
+
+.backup-link {
+    font-size: 0.85rem;  /* Match the instructions' font size */
+    text-decoration: underline;
+    color: white;
+}
+
+.backup-link:hover {
+    color: #f0f0f0;
+}
+
+/* Style the additional instructions text */
 .additional-instructions {
     position: absolute;
-    top: 60%; /* Position below the title */
+    top: 38%;  /* Move instructions slightly higher */
     left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-family: 'Arial', sans-serif;
-    font-size: 0.8rem;
-    z-index: 1;
-    max-width: 600px; /* Limit width for better layout */
+    transform: translate(-50%, 0);
+    width: 90%;  /* Ensure instructions don't stretch too far */
+    max-width: 550px;
+    text-align: left;  /* Left-align the instructions */
+    line-height: 1.4;  /* Reduce line spacing */
+    font-size: 0.85rem;  /* Keep the font size as requested */
+    opacity: 0.9;
 }
 
 .additional-instructions p {
-    margin-bottom: 10px;
+    margin-bottom: 5px;  /* Reduce space between paragraphs */
 }
 
 /* Center the PNG image within the instructions */
 .instruction-image {
     display: block;
-    margin: 20px auto 0 auto; /* Center the image horizontally */
-    max-width: 400px;
+    margin: 15px auto;
+    max-width: 300px;  /* Keep the image small */
     height: auto;
-    opacity: 0.8; /* Optional: Adjust opacity for better blending */
+    opacity: 0.9;
 }
