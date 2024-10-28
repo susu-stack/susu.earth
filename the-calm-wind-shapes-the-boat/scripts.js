@@ -106,4 +106,18 @@ window.onload = function() {
     }
 };
 
+document.getElementById('audio-play-btn').addEventListener('click', function() {
+    var video = document.getElementById('background-video');
+    
+    // Restart the audio/video from the beginning
+    video.currentTime = 0;
+    
+    // Unmute the video/audio
+    video.muted = false;
 
+    // Play the video/audio
+    video.play();
+
+    // Hide the button after clicking (so it doesn't appear again)
+    this.classList.add('hidden');
+});

@@ -211,3 +211,24 @@ margin-top: 30px;
     background-size: cover;
     transform: rotateY(180deg);
 }
+
+#audio-play-btn {
+    position: fixed; /* Stay fixed in the top-left corner */
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* Ensure it's on top */
+    padding: 10px 20px;
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    border: 1px solid black; /* Thin black border */
+    border-radius: 5px;
+    font-family: "Cactus Classical Serif", serif; /* Use your custom font */
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* Smooth fade-out when clicked */
+}
+
+#audio-play-btn.hidden {
+    opacity: 0; /* Button fades out */
+    pointer-events: none; /* Make it unclickable after it disappears */
+}
