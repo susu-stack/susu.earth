@@ -15,17 +15,16 @@ body {
   background-color: #fff;
   border: 1px solid #ccc;
 }
-
 #text-container {
-  width: calc(100% - 40px); /* Subtracting padding from width */
-  padding: 10px 0;
+  width: 100%;  /* Ensure it takes the full width */
+  height: 90vh;  /* Allow for large enough height to display the text */
+  padding: 20px;
   font-size: 20px;
+  overflow-y: auto;  /* Enable scrolling if text exceeds the container */
   color: black;
-  white-space: pre-wrap; /* Ensure text wraps correctly */
-  line-height: 1.5;
-  pointer-events: none; /* Prevent interaction */
-  overflow-x: hidden; /* Prevent horizontal overflow */
-  box-sizing: border-box; /* Include padding and borders in the width calculations */
+  white-space: pre-wrap;  /* Ensure text wraps correctly */
+  background-color: white;  /* Optional: Ensure background is readable */
+  box-sizing: border-box;  /* Include padding in width/height */
 }
 
 /* Transparent floating video on top-right */

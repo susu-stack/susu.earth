@@ -1,107 +1,91 @@
-let autoScrollEnabled = true;  // Start with auto-scroll enabled
-
 window.onload = function() {
     const video = document.getElementById('floating-video');
-    video.play().catch(error => {
-        console.log("Video failed to play automatically:", error);
-    });
+    if (video) {
+        video.play().catch(error => {
+            console.log("Video failed to play automatically:", error);
+        });
+    }
+
+    // Start typing the sentences when the page is fully loaded
+    typeSentences(sentences);
 };
 
 // Function to manually append text without clearing anything
 function appendTextManually(containerId, text) {
-  const container = document.getElementById(containerId);
-  const newText = document.createElement('div');
-  newText.textContent = text;
-  container.insertBefore(newText, document.getElementById('typed-text')); // Insert new text before the typed-text element
-  forceScrollToBottom(containerId);  // Force auto-scroll to the bottom after new text is appended
+    const container = document.getElementById(containerId);
+    if (container) {
+        const newText = document.createElement('div');
+        newText.textContent = text;
+        container.insertBefore(newText, document.getElementById('typed-text')); // Insert new text before the typed-text element
+    }
 }
 
 // Function to append a dashed line (section separator)
 function appendLineBreak(containerId) {
-  const container = document.getElementById(containerId);
-  const lineBreak = document.createElement('hr');
-  lineBreak.classList.add('line-break');
-  container.insertBefore(lineBreak, document.getElementById('typed-text')); // Insert dashed line before typed-text
-  forceScrollToBottom(containerId);  // Force auto-scroll to the bottom after the dashed line is added
-}
-
-// Force scroll the container to the bottom
-function forceScrollToBottom(containerId) {
-  const container = document.getElementById(containerId);
-  container.scrollTop = container.scrollHeight;  // Force scroll to bottom
-}
-
-// Detect user scroll and toggle auto-scroll based on user position
-function handleUserScroll(containerId) {
-  const container = document.getElementById(containerId);
-
-  container.addEventListener('scroll', () => {
-    // Check if the user is near the bottom of the container (small tolerance)
-    const isUserNearBottom = container.scrollHeight - container.clientHeight <= container.scrollTop + 50;
-
-    // Enable auto-scroll if the user is near the bottom
-    autoScrollEnabled = isUserNearBottom;
-  });
-}
-
-// Initialize the auto-scroll handling when the page loads
-handleUserScroll('text-container');
-
-// Function to generate a random delay between a min and max range
-function getRandomDelay(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+    const container = document.getElementById(containerId);
+    if (container) {
+        const lineBreak = document.createElement('hr');
+        lineBreak.classList.add('line-break');
+        container.insertBefore(lineBreak, document.getElementById('typed-text')); // Insert dashed line before typed-text
+    }
 }
 
 // Function to simulate manual typing of a new sentence at the bottom
 function typeSentence(sentence, callback) {
-  let index = 0;
+    let index = 0;
+    const typedTextElement = document.getElementById('typed-text');
 
-  // Function to gradually append each character like typing with randomized speed
-  function typeCharacter() {
-    if (index < sentence.length) {
-      document.getElementById('typed-text').textContent += sentence.charAt(index);
-      index++;
+    // Function to gradually append each character like typing with randomized speed
+    function typeCharacter() {
+        if (index < sentence.length) {
+            typedTextElement.textContent += sentence.charAt(index);  // Append the current character
+            index++;
 
-      // Randomize the typing interval between 30ms and 100ms
-      const randomDelay = getRandomDelay(20, 100);
-      setTimeout(typeCharacter, randomDelay);  // Use random delay for each character
-    } else {
-      // After typing the entire sentence, append it permanently and clear 'typed-text'
-      appendTextManually('text-container', document.getElementById('typed-text').textContent);
-      document.getElementById('typed-text').textContent = ''; // Clear the typing area
-      if (callback) callback();  // Call next function if needed
+            // Randomize the typing interval between 30ms and 100ms
+            const randomDelay = getRandomDelay(50, 100);  // Adjust delay to ensure readability
+            setTimeout(typeCharacter, randomDelay);  // Use random delay for each character
+        } else {
+            // After typing the entire sentence, append it permanently and clear 'typed-text'
+            appendTextManually('text-container', typedTextElement.textContent);
+            typedTextElement.textContent = ''; // Clear the typing area
+            if (callback) callback();  // Call next function if needed
+        }
     }
-  }
-  
-  // Start typing characters
-  typeCharacter();
+
+    // Start typing characters
+    typeCharacter();
 }
 
 // Function to handle typing multiple sentences
 function typeSentences(sentences) {
-  let sentenceIndex = 0;
+    let sentenceIndex = 0;
 
-  // Recursive function to type each sentence sequentially
-  function typeNext() {
-    if (sentenceIndex < sentences.length) {
-      const currentSentence = sentences[sentenceIndex];
+    // Recursive function to type each sentence sequentially
+    function typeNext() {
+        if (sentenceIndex < sentences.length) {
+            const currentSentence = sentences[sentenceIndex];
 
-      // Type the current sentence
-      typeSentence(currentSentence, function() {
-        // If sentence contains a period, append a dashed line
-        if (currentSentence.includes('♡')) {
-          appendLineBreak('text-container');
+            // Type the current sentence
+            typeSentence(currentSentence, function() {
+                // If sentence contains '♡', append a dashed line
+                if (currentSentence.includes('♡')) {
+                    appendLineBreak('text-container');
+                }
+
+                // Move to the next sentence
+                sentenceIndex++;
+                typeNext();  // Type the next sentence after the current one is done
+            });
         }
-
-        // Move to the next sentence
-        sentenceIndex++;
-        typeNext();  // Type the next sentence after the current one is done
-      });
     }
-  }
 
-  // Start typing the first sentence
-  typeNext();
+    // Start typing the first sentence
+    typeNext();
+}
+
+// Function to generate a random delay between a min and max range
+function getRandomDelay(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Array of sentences to type (without backspacing)
@@ -451,6 +435,3 @@ const sentences = [
 " ",
 "♡",
 ];
-
-// Start typing the sentences
-typeSentences(sentences);
