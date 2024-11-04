@@ -18,10 +18,11 @@
 
     <!-- Main Logo -->
 <!-- Main Logo as a Link to the Landing Page -->
-<a href="index.html" class="menu-logo" id="menuLogo">susu</a>
+<a href="index.html" class="menu-logo" id="menuLogo">susu 蘇子誠</a>
     <!-- Overlay Menu (Hidden by Default) -->
 <div class="overlay-menu" id="overlayMenu">
     <div class="menu-content">
+        <h2 class="menu-subtitle">exhibitions</h2> <!-- New Subtitle -->
         <ul class="title-list">
             <li class="title-item" onclick="loadExhibition('exhibitionA')">
                 the calm wind shapes the boat
@@ -29,24 +30,25 @@
                 <span class="extra-info">2024</span>
             </li>
             <li class="title-item" onclick="loadExhibition('exhibitionB')">
-                Skin in craters like the Moon
-                <span class="extra-info">Te Tuhi, Tāmaki Makaurau Auckland, Aotearoa NZ</span>
-                <span class="extra-info">2024</span>
-            </li>
-            <li class="title-item" onclick="loadExhibition('exhibitionC')">
-                promising.space
-                <span class="extra-info">Window Gallery, Tāmaki Makaurau Auckland, Aotearoa NZ</span>
-                <span class="extra-info">2021</span>
-            </li>
-            <li class="title-item" onclick="loadExhibition('exhibitionD')">
                 and my roarings are poured out like the waters
                 <span class="extra-info">Robert Heald Gallery, Pōneke Wellington, NZ</span>
                 <span class="extra-info">2023</span>
             </li>
-            <li class="title-item" onclick="loadExhibition('exhibitionE')">
+
+            <li class="title-item" onclick="loadExhibition('exhibitionC')">
                 Rooting for you
                 <span class="extra-info">SCAPE Public Art, Ōtautahi Christchurch, NZ</span>
                 <span class="extra-info">2023</span>
+            </li>
+            <li class="title-item" onclick="loadExhibition('exhibitionD')">
+                Between the Gift and its Reprisal
+                <span class="extra-info">Artspace Aotearoa, Tāmaki Makaurau Auckland, Aotearoa NZ</span>
+                <span class="extra-info">2022</span>
+            </li>
+            <li class="title-item" onclick="loadExhibition('exhibitionE')">
+                Music Video
+                <span class="extra-info">play_station, Pōneke Wellington, Aotearoa NZ</span>
+                <span class="extra-info">2022</span>
             </li>
             <li class="title-item" onclick="loadExhibition('exhibitionF')">
                 The Moon and the Pavement
@@ -54,21 +56,39 @@
                 <span class="extra-info">2022</span>
             </li>
             <li class="title-item" onclick="loadExhibition('exhibitionG')">
-                Music Video
-                <span class="extra-info">play_station, Pōneke Wellington, Aotearoa NZ</span>
-                <span class="extra-info">2022</span>
+                promising.space
+                <span class="extra-info">Window Gallery, Tāmaki Makaurau Auckland, Aotearoa NZ</span>
+                <span class="extra-info">2021</span>
             </li>
-            <li class="title-item" onclick="loadExhibition('exhibitionH')">
-                Between the Gift and its Reprisal
-                <span class="extra-info">Artspace Aotearoa, Tāmaki Makaurau Auckland, Aotearoa NZ</span>
-                <span class="extra-info">2022</span>
+
+        </ul>
+
+
+        <h2 class="menu-subtitle">✦</h2>
+<ul class="title-list">
+    <li class="title-item">
+        <a href="https://www.circuit.org.nz/artist/susu" target="_blank">video works</a>
+    </li>
+</ul>
+
+        <ul class="title-list">
+            <li class="title-item" onclick="loadPress()">
+                press
             </li>
         </ul>
         </div>
     </div>
 
-    <!-- Exhibition Content Area (Hidden Initially) -->
-    <div class="exhibition-content" id="exhibitionContent"></div>
+<!-- Exhibition Content Area (Hidden Initially) -->
+<div class="exhibition-content" id="exhibitionContent">
+    <!-- Example of image-wrapper structure within exhibition content -->
+    <div class="image-wrapper">
+        <img src="CalmWind1.jpg" alt="Image 1 description">
+        <div class="image-info">Still from website, photo, text, animation.</div>
+    </div>
+    <!-- Additional image-wrapper divs will be added by JavaScript -->
+</div>
+
 
     <!-- Video Credit -->
     <div class="video-credit">video excerpt from 'the calm wind shapes the boat' 2024, Blue Oyster.</div>

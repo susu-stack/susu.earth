@@ -35,19 +35,24 @@ video#backgroundVideo {
   font-weight: 300;
   font-style: normal;
 }
+.cactus-classical-serif-regular {
+  font-family: "Cactus Classical Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* Main Title Logo with White Color and Black Outline */
 .menu-logo {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 1.5em;
-    font-weight: lighter;
-    color: MediumSpringGreen;
-    /*text-shadow: -0.4px -0.4px 0 MediumSpringGreen, 0.4px -0.4px 0 MediumSpringGreen, -0.4px 0.4px 0 MediumSpringGreen, 0.4px 0.4px 0 MediumSpringGreen;*/
+    top: 25px;
+    left: 40px;
+    font-size: 2em;
+    color: mediumaquamarine;
     z-index: 11; /* Set a higher z-index to ensure it's above the overlay menu */
     cursor: pointer;
     text-decoration: none; /* Remove underline from the link */
+        font-family:Cactus Classical Serif, serif;
+
 
 }
 /* Sidebar Menu */
@@ -57,12 +62,15 @@ video#backgroundVideo {
     left: 0;
     width: 100%;  /* Cover the entire width of the screen */
     height: 100%; /* Cover the entire height of the screen */
-    background-color: rgba(255, 255, 255, 0.7); /* Set background to white with slight opacity */
+    background-color: mintcream;
+    opacity: 0.8; /* Set background to white with slight opacity */
     display: none; /* Hidden by default */
     justify-content: flex-start;
     align-items: flex-start;
     padding: 40px; /* Use padding for menu items */
     z-index: 10; /* Ensure it is above other content */
+        text-decoration: none;
+
 }
 
 /* Show overlay menu on hover for all pages */
@@ -70,42 +78,61 @@ video#backgroundVideo {
     display: flex; /* Display the menu on hover */
 }
 
-/* Menu Content Styling */
-.menu-content {
-    color: black; /* Change menu text color to black for better visibility */
-    font-size: 1.5rem;
-    width: 100%;
+.menu-subtitle {
+    font-size: 2em; /* Adjust font size as needed */
+    margin-bottom: 70px; /* Space below the subtitle */
+    margin-top: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    font-weight: medium;
+    color: black;
+    text-decoration: none;
+
 }
 
 .title-list {
     list-style: none;
     margin-top: 40px; /* Space from logo */
+    text-decoration: none;
+
 }
 
 .title-item {
     margin-bottom: 30px; /* Increased space between menu items for readability */
-    font-size: 0.8em; /* Slightly larger font size */
+    font-size: 1.2em; /* Slightly larger font size */
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
-    font-weight: lighter;
+    font-weight: medium;
+    color: black;
+    text-decoration: none;
 
 }
+.title-item a {
+    color: black;             /* Ensure link color matches text */
+    text-decoration: none;    /* Remove underline */
+}
+
 
 /* Extra info styling */
 .extra-info {
     display: none; /* Initially hidden */
-    font-size: 0.6em;
-    color: #555;
+    font-size: 0.9em;
+    color: black;
     line-height: 1.4;
-    font-weight: lighter;
+    font-weight: medium;
+    text-decoration: none;
 
 }
 
 .title-item:hover .extra-info {
     display: block; /* Show extra info on hover */
+    text-decoration: none;
+
 }
 
 /* Exhibition Content Layout */
@@ -118,8 +145,21 @@ video#backgroundVideo {
     overflow-y: auto;
     position: relative;
     z-index: 3;
-        font-weight: lighter;
+    font-weight: medium;
 
+}
+
+/* Set uniform display for images and align them to the left */
+.exhibition-content img {
+    max-width: 100%;
+    max-height: 1000px; /* Adjust height as needed */
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+    object-fit: contain;
+    float: left; /* Align images to the left */
+    clear: both; /* Ensure images don’t overlap each other */
 }
 
 .exhibition-title {
@@ -133,36 +173,38 @@ video#backgroundVideo {
 .related-links {
     font-size: 1em;
     margin-bottom: 20px;
-    font-weight: lighter;
+    font-weight: medium;
 
 }
 
 .related-links a {
-    color: MediumSpringGreen;
+    color: mediumaquamarine;
     text-decoration: underline;
-    font-weight: lighter;
+    font-weight: medium;
+
 
 }
 
-.exhibition-main-image img {
-    width: 100%;
-    margin-bottom: 10px;
-}
 
 .image-info {
-    font-size: 0.9em;
-    color: #555;
+    font-size: 1.1
+    color: black
     margin-bottom: 20px;
+    font-weight: medium;
 }
 
 .additional-images {
     margin-top: 20px;
+        font-weight: medium;
+
 
 }
 
 .additional-image img {
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 5px;    
+    text-align: left;
+
 }
 
 /* Video Credit Text */
@@ -170,7 +212,7 @@ video#backgroundVideo {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    font-size: 0.8em;
+    font-size: 1.2em;
     color: white;
     opacity: 0.8;
     z-index: 2;
@@ -181,6 +223,47 @@ video#backgroundVideo {
     font-size: 1.2em; /* Adjust size as needed */
     margin-bottom: 15px; /* Space below the subtitle */
     color: #333; /* Change color if needed */
-        font-weight: lighter;
+    font-weight: lighter;
 
+}
+
+/* Container for each image and its info */
+.image-wrapper {
+    max-width: 600px;      /* Set a width to align with text */
+    margin: 0 auto 20px;   /* Center in container with spacing */
+    text-align: left;      /* Align text within to the left */
+}
+
+/* Set uniform display for images */
+.image-wrapper img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    text-align: left;      /* Align text within to the left */
+
+}
+
+/* Style for the image description */
+.image-info {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.press-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.press-list li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.press-list a {
+    color: blue;
+    text-decoration: underline;
 }
