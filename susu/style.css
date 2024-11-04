@@ -81,7 +81,7 @@ video#backgroundVideo {
 .menu-subtitle {
     font-size: 2em; /* Adjust font size as needed */
     margin-bottom: 70px; /* Space below the subtitle */
-    margin-top: 40px;
+    margin-top: 60px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -178,7 +178,7 @@ video#backgroundVideo {
 }
 
 .related-links a {
-    color: GreenYellow;
+    color: YellowGreen;
     text-decoration: underline;
     font-weight: medium;
 
@@ -212,7 +212,7 @@ video#backgroundVideo {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: white;
     opacity: 0.8;
     z-index: 2;
