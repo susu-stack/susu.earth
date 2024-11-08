@@ -11,7 +11,7 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: auto; /* Change this to auto or remove to enable scrolling */
-    font-family: Cormorant Garamond, serif;
+    font-family: Cactus Classical Serif, serif;
 }
 
 /* Fullscreen Background Video */
@@ -51,9 +51,7 @@ video#backgroundVideo {
     z-index: 11; /* Set a higher z-index to ensure it's above the overlay menu */
     cursor: pointer;
     text-decoration: none; /* Remove underline from the link */
-        font-family:Cactus Classical Serif, serif;
-
-
+    font-family:Cactus Classical Serif, serif;
 }
 /* Sidebar Menu */
 .overlay-menu {
@@ -78,15 +76,17 @@ video#backgroundVideo {
     display: flex; /* Display the menu on hover */
 }
 
-.menu-subtitle {
-    font-size: 1em; /* Adjust font size as needed */
-    margin-bottom: 70px; /* Space below the subtitle */
-    margin-top: 40px;
+
+
+.menu-subtitle1 {
+    font-size: 1.2em; /* Adjust font size as needed */
+    margin-bottom: 30px; /* Space below the subtitle */
+    margin-top: 50px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
-    font-weight: medium;
+    font-weight: lighter;
     color: black;
     text-decoration: none;
 
@@ -101,7 +101,7 @@ video#backgroundVideo {
 
 .title-item {
     margin-bottom: 30px; /* Increased space between menu items for readability */
-    font-size: 1.2em; /* Slightly larger font size */
+    font-size: 0.8em; /* Slightly larger font size */
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
@@ -217,6 +217,8 @@ video#backgroundVideo {
     opacity: 0.8;
     z-index: 2;
     font-style: italic;
+    font-family: Cormorant Garamond, serif;
+
 }
 
 .exhibition-subtitle {
@@ -266,4 +268,53 @@ video#backgroundVideo {
 .press-list a {
     color: blue;
     text-decoration: underline;
+}
+/* Mobile styles */
+@media (max-width: 768px) {
+    /* Adjust font sizes and layout for mobile */
+    .menu-logo {
+        font-size: 1.5em;
+        top: 10px;
+        left: 10px;
+    }
+
+    .overlay-menu {
+        width: 100vw; /* Full width on mobile */
+        height: 100vh; /* Full height on mobile */
+        padding: 20px;
+        align-items: flex-start;
+    }
+
+    .title-list .title-item {
+        font-size: 1em;
+        margin-bottom: 15px;
+    }
+
+    .exhibition-content {
+        padding: 20px;
+        width: 100%; /* Full width for content */
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    video#backgroundVideo {
+        display: none; /* Hide video on mobile */
+    }
+
+    /* Optional: set a static background image for mobile */
+    body {
+        background-image: url('path/to/static-image.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .overlay-menu {
+        background-color: rgba(255, 255, 255, 0.95); /* Higher opacity for readability */
+        display: none; /* Default hidden */
+        justify-content: center;
+        align-items: flex-start;
+    }
 }

@@ -34,7 +34,7 @@ const exhibitions = {
     },
     exhibitionB: {
         title: "and my roarings are poured out like the waters",
-        subtitle: "Robert Heald Gallery, 2023, Group Show, Pōneke Wellington, NZ",
+        subtitle: "Robert Heald Gallery, 2023, Group Show, Te Whanganui-a-Tara Wellington, NZ",
         relatedLinks: [
     "<a href='https://roberthealdgallery.com/2023/and-my-roarings-are-poured-out-like-the-waters-curated-by-owen-connors' target='_blank'>George Kuchar, p. Walters, susu (curated by Owen Connors)</a>",
     "<a href='https://drive.google.com/file/d/1Byhbqmsn5aMsVPxrcGtpDkBzPyjTvP6I/view?usp=sharing' target='_blank'>View PDF Document</a>"        ],
@@ -73,7 +73,7 @@ const exhibitions = {
     },
     exhibitionE: {
         title: "Music Video",
-        subtitle: "play_station, 2022, Pōneke Wellington, Aotearoa NZ",
+        subtitle: "play_station, 2022, Te Whanganui-a-Tara Wellington, Aotearoa NZ",
         relatedLinks: [
             "<a href='https://playstationartistrun.space/music-video'>Susu and Jamie Rhiannon Howse, Curated by Angel C. Fitzgerald</a>",
         ],
@@ -223,8 +223,8 @@ const pressArticles = [
         const contactHTML = `
             <h1 class="exhibition-title">Contact</h1>
             <ul class="press-list">
-                <li>Address: <a href="mailto:susu.tzucheng@gmail.com">susu.tzucheng@gmail.com</a></li>
-                <li>Instagram: <a href="https://www.instagram.com/susu_y2k/" target="_blank">@susu_y2k</a></li>
+                <li> <a href="mailto:susu.tzucheng@gmail.com">susu.tzucheng@gmail.com</a></li>
+                <li> <a href="https://www.instagram.com/susu_y2k/" target="_blank">@susu_y2k</a></li>
             </ul>
         `;
 
@@ -238,3 +238,32 @@ const pressArticles = [
     // Assign functions to global window object for menu access
     window.loadPress = loadPress;
     window.loadContact = loadContact;
+    
+document.addEventListener("DOMContentLoaded", () => {
+    const menuLogo = document.getElementById("menuLogo");
+    const overlayMenu = document.getElementById("overlayMenu");
+
+    function toggleMenu() {
+        if (window.innerWidth <= 768) { // Mobile screen
+            overlayMenu.style.display = overlayMenu.style.display === "flex" ? "none" : "flex";
+        }
+    }
+
+    menuLogo.addEventListener("click", toggleMenu);
+
+    // For larger screens, keep the hover effect
+    if (window.innerWidth > 768) {
+        menuLogo.addEventListener("mouseenter", () => {
+            overlayMenu.style.display = "flex";
+        });
+
+        document.addEventListener("mousemove", (event) => {
+            const screenWidth = window.innerWidth;
+            const leftQuarterBoundary = screenWidth * 0.25;
+
+            if (event.clientX > leftQuarterBoundary) {
+                overlayMenu.style.display = "none";
+            }
+        });
+    }
+});
