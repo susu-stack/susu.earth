@@ -200,21 +200,41 @@ const pressArticles = [
     }
 ];
 
-// Function to load press content
-function loadPress() {
-    const pressHTML = `
-        <h1 class="exhibition-title">Press</h1>
-        <ul class="press-list">
-            ${pressArticles.map(article => `
-                <li>${article.year} - <a href="${article.link}" target="_blank">${article.title}</a> - ${article.description}</li>
-            `).join('')}
-        </ul>
-    `;
+ // Load press content function (as already implemented)
+    function loadPress() {
+        const pressHTML = `
+            <h1 class="exhibition-title">Press</h1>
+            <ul class="press-list">
+                ${pressArticles.map(article => `
+                    <li>${article.year} - <a href="${article.link}" target="_blank">${article.title}</a> - ${article.description}</li>
+                `).join('')}
+            </ul>
+        `;
 
-    // Display press content in the exhibition content area
-    exhibitionContent.innerHTML = pressHTML;
-    exhibitionContent.style.display = "block";
-    overlayMenu.style.display = "none";
-    document.getElementById("backgroundVideo").style.display = "none";
-    exhibitionContent.classList.add("exhibition-content-active");
-}
+        exhibitionContent.innerHTML = pressHTML;
+        exhibitionContent.style.display = "block";
+        overlayMenu.style.display = "none";
+        document.getElementById("backgroundVideo").style.display = "none";
+        exhibitionContent.classList.add("exhibition-content-active");
+    }
+
+    // Load contact content function (improved)
+    function loadContact() {
+        const contactHTML = `
+            <h1 class="exhibition-title">Contact</h1>
+            <ul class="press-list">
+                <li>Address: <a href="mailto:susu.tzucheng@gmail.com">susu.tzucheng@gmail.com</a></li>
+                <li>Instagram: <a href="https://www.instagram.com/susu_y2k/" target="_blank">@susu_y2k</a></li>
+            </ul>
+        `;
+
+        exhibitionContent.innerHTML = contactHTML;
+        exhibitionContent.style.display = "block";
+        overlayMenu.style.display = "none";
+        document.getElementById("backgroundVideo").style.display = "none";
+        exhibitionContent.classList.add("exhibition-content-active");
+    }
+
+    // Assign functions to global window object for menu access
+    window.loadPress = loadPress;
+    window.loadContact = loadContact;
