@@ -238,3 +238,32 @@ const pressArticles = [
     // Assign functions to global window object for menu access
     window.loadPress = loadPress;
     window.loadContact = loadContact;
+    
+document.addEventListener("DOMContentLoaded", () => {
+    const menuLogo = document.getElementById("menuLogo");
+    const overlayMenu = document.getElementById("overlayMenu");
+
+    function toggleMenu() {
+        if (window.innerWidth <= 768) { // Mobile screen
+            overlayMenu.style.display = overlayMenu.style.display === "flex" ? "none" : "flex";
+        }
+    }
+
+    menuLogo.addEventListener("click", toggleMenu);
+
+    // For larger screens, keep the hover effect
+    if (window.innerWidth > 768) {
+        menuLogo.addEventListener("mouseenter", () => {
+            overlayMenu.style.display = "flex";
+        });
+
+        document.addEventListener("mousemove", (event) => {
+            const screenWidth = window.innerWidth;
+            const leftQuarterBoundary = screenWidth * 0.25;
+
+            if (event.clientX > leftQuarterBoundary) {
+                overlayMenu.style.display = "none";
+            }
+        });
+    }
+});
