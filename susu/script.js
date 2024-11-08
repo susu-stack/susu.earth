@@ -34,10 +34,10 @@ const exhibitions = {
     },
     exhibitionB: {
         title: "and my roarings are poured out like the waters",
-        subtitle: "Robert Heald Gallery, 2023, Group Show, Te Whanganui-a-Tara Wellington, NZ",
+        subtitle: "Robert Heald Gallery, 2023, Group Show, Pōneke Wellington, NZ",
         relatedLinks: [
-            "<a href='https://roberthealdgallery.com/2023/and-my-roarings-are-poured-out-like-the-waters-curated-by-owen-connors'>George Kuchar, p. Walters, susu (curated by Owen Connors)</a>",
-        ],
+    "<a href='https://roberthealdgallery.com/2023/and-my-roarings-are-poured-out-like-the-waters-curated-by-owen-connors' target='_blank'>George Kuchar, p. Walters, susu (curated by Owen Connors)</a>",
+    "<a href='https://drive.google.com/file/d/1Byhbqmsn5aMsVPxrcGtpDkBzPyjTvP6I/view?usp=sharing' target='_blank'>View PDF Document</a>"        ],
         images: [
             { src: "RH1.jpg", info: "Seeing a reflection, 2023, plaster, diatomaceous earth and fiberglass (edition of 3), 95 x 67.5 x 3cm" },
             { src: "RH2.jpg", info: "Seeing a reflection (detail), 2023, plaster, diatomaceous earth and fiberglass (edition of 3)" },
@@ -73,7 +73,7 @@ const exhibitions = {
     },
     exhibitionE: {
         title: "Music Video",
-        subtitle: "play_station, 2022, Te Whanganui-a-Tara Wellington, Aotearoa NZ",
+        subtitle: "play_station, 2022, Pōneke Wellington, Aotearoa NZ",
         relatedLinks: [
             "<a href='https://playstationartistrun.space/music-video'>Susu and Jamie Rhiannon Howse, Curated by Angel C. Fitzgerald</a>",
         ],
