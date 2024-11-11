@@ -1,14 +1,15 @@
 window.onload = function() {
     const video = document.getElementById('floating-video');
     if (video) {
-        video.play().catch(error => {
+        video.play().then(() => {
+            console.log("Video is playing.");
+        }).catch(error => {
             console.log("Video failed to play automatically:", error);
         });
     }
-
-    // Start typing the sentences when the page is fully loaded
-    typeSentences(sentences);
+    typeSentences(sentences);  // Start typing the sentences
 };
+
 
 // Function to manually append text without clearing anything
 function appendTextManually(containerId, text) {
@@ -321,7 +322,7 @@ const sentences = [
 "Passengers on the ship of those who sought refuge but brought with them a new wave of displacement",
 "When the Japanese first came they called this place a ghost island",
 "for how many of their people have died in their expeditions, due to a lack of ‘modern infrastructures.’",
-"When the Portuguese sailors saw the island from afar they called it Ilha Formosa, a beautiful island",
+"When the Dutch sailors saw the island from afar they called it Formosa, a beautiful island",
 " ",
 "Currently, me and my country are both confused, for the same and very different reasons",
 "I want to say we are both growing, in development of a clearer and undisputed consciousness of identity",
