@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         images: [
             { src: "calmwind1.png", info: "Still from website, photo, text, animation." },
             { src: "calmwind2.png", info: "Still from website, photo, text, animation." },
-            { src: "CalmWind3.jpg", info: "Research Image."},
+            { src: "calmwind3.JPG", info: "Research Image."},
         ]
     },
     exhibitionB: {
