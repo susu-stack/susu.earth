@@ -1,46 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>susu</title>
+    <title>Susu</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <video id="loopVideo" autoplay loop muted playsinline>
-        <source src="landing.webm" type="video/webm">
+    <!-- Fullscreen Video Background -->
+    <video id="backgroundVideo" autoplay loop muted playsinline>
+        <source src="main.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
 
-    <!-- Centered clickable title -->
-    <div class="centered-title">
-        <a href="#" class="title" id="triggerFakePopup">the calm wind shapes the boat</a>
+    <!-- Main Logo -->
+<!-- Main Logo as a Link to the Landing Page -->
+<a href="index.html" class="menu-logo" id="menuLogo">susu 蘇子誠</a>
+    <!-- Overlay Menu (Hidden by Default) -->
+<div class="overlay-menu" id="overlayMenu">
+    <div class="menu-content">
+        <h2 class="menu-subtitle1">exhibitions</h2> <!-- New Subtitle -->
+        <ul class="title-list">
+            <li class="title-item" onclick="loadExhibition('exhibitionA')">
+                the calm wind shapes the boat
+                <span class="extra-info">Blue Oyster Art Project Space, Ōtepoti Dunedin, Aotearoa NZ</span>
+                <span class="extra-info">2024</span>
+            </li>
+            <li class="title-item" onclick="loadExhibition('exhibitionB')">
+                and my roarings are poured out like the waters
+                <span class="extra-info">Robert Heald Gallery, Te Whanganui-a-Tara Wellington, NZ</span>
+                <span class="extra-info">2023</span>
+            </li>
+
+            <li class="title-item" onclick="loadExhibition('exhibitionC')">
+                Rooting for you
+                <span class="extra-info">SCAPE Public Art, Ōtautahi Christchurch, NZ</span>
+                <span class="extra-info">2023</span>
+            </li>
+            <li class="title-item" onclick="loadExhibition('exhibitionD')">
+                Between the Gift and its Reprisal
+                <span class="extra-info">Artspace Aotearoa, Tāmaki Makaurau Auckland, Aotearoa NZ</span>
+                <span class="extra-info">2022</span>
+            </li>
+            <li class="title-item" onclick="loadExhibition('exhibitionE')">
+                Music Video
+                <span class="extra-info">play_station, Te Whanganui-a-Tara Wellington, Aotearoa NZ</span>
+                <span class="extra-info">2022</span>
+            </li>
+            <li class="title-item" onclick="loadExhibition('exhibitionF')">
+                The Moon and the Pavement
+                <span class="extra-info">The Physics Room and Ashburton Art Gallery, Hakatere Ashburton, Aotearoa NZ</span>
+                <span class="extra-info">2022</span>
+            </li>
+            <li class="title-item" onclick="loadExhibition('exhibitionG')">
+                promising.space
+                <span class="extra-info">Window Gallery, Tāmaki Makaurau Auckland, Aotearoa NZ</span>
+                <span class="extra-info">2021</span>
+            </li>
+
+        </ul>
+
+
+        <h2 class="menu-subtitle">✦</h2>
+<ul class="title-list">
+    <li class="title-item">
+        <a href="https://www.circuit.org.nz/artist/susu" target="_blank">video works</a>
+    </li>
+</ul>
+<ul class="title-list">
+    <li class="title-item" onclick="loadPress()">
+        press
+    </li>
+    <li class="title-item" onclick="loadContact()">
+        contact
+    </li>
+</ul>
+
+        <ul class="title-list">
+    <li class="title-item">
+        <a href="https://drive.google.com/file/d/1AZomHCmFn1wcooZ-nijAouUKhHpjgIIH/view?usp=sharing" target="_blank">CV</a>
+    </li>
+
+        </ul>
+        </div>
     </div>
 
-    <!-- Backup direct link right after the title -->
-    <div class="backup-link-container">
-        <p>If the above link doesn't work, <a href="https://susu.earth/the-calm-wind-shapes-the-boat" class="backup-link">click here to access the page directly.</a></p>
+<!-- Exhibition Content Area (Hidden Initially) -->
+<div class="exhibition-content" id="exhibitionContent">
+    <!-- Example of image-wrapper structure within exhibition content -->
+    <div class="image-wrapper">
+        <img src="CalmWind1.jpg" alt="Image 1 description">
+        <div class="image-info">Still from website, photo, text, animation.</div>
     </div>
+    <!-- Additional image-wrapper divs will be added by JavaScript -->
+</div>
 
-    <!-- Instructional text below the title -->
-    <div class="additional-instructions">
-        <p>minimise your current window, adjust window to the left-hand side</p>
-        <p>if pop-up requests show up, please accept and refresh page</p>
-        <p>using Chrome as a browser is recommended</p>
-                <p> <br> </p>
 
-        <p>sound on</p>
-        <p>use arrow keys ← → to turn and mouse to scroll</p>
-                <p> <br> </p>
-
-        <p>first time loading may take a few moments</p>
-        <p>reload page if window or sound encounter loading issues</p>
-        <p>click the title above to enter,</p>
-        <p>after loading, adjust to see two windows like this:</p>
-                <p> <br> </p>
-        <img src="diagram.png" alt="Example windows" class="instruction-image">
-    </div>
+    <!-- Video Credit -->
+    <div class="video-credit">video excerpt from 'the calm wind shapes the boat' 2024, Blue Oyster.</div>
 
     <script src="script.js"></script>
 </body>
