@@ -1,22 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
     const menuLogo = document.getElementById("menuLogo");
     const overlayMenu = document.getElementById("overlayMenu");
     const exhibitionContent = document.getElementById("exhibitionContent");
+    const backgroundVideo = document.getElementById("backgroundVideo");
 
-    // Show overlay menu when hovering over the logo
-    menuLogo.addEventListener("mouseenter", () => {
-        overlayMenu.style.display = "flex";
-    });
+    if (isMobile) {
+        console.log("Mobile version loaded");
 
-    // Hide overlay menu when the mouse moves away from the left quarter of the screen
-    document.addEventListener("mousemove", (event) => {
-        const screenWidth = window.innerWidth;
-        const leftQuarterBoundary = screenWidth * 0.25;
-
-        if (event.clientX > leftQuarterBoundary) {
-            overlayMenu.style.display = "none";
+        // Hide background video and replace with static image on mobile
+        if (backgroundVideo) {
+            backgroundVideo.style.display = "none";
+            document.body.style.backgroundImage = "url('mobile-background.jpg')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
         }
-    });
+
+        // Mobile: Tap to toggle menu
+        menuLogo.addEventListener("click", () => {
+            overlayMenu.style.display = overlayMenu.style.display === "flex" ? "none" : "flex";
+        });
+
+    } else {
+        console.log("Desktop version loaded");
+
+        // Keep WebM background for PC
+        if (backgroundVideo) {
+            backgroundVideo.style.display = "block";
+        }
+
+        // Fix: Ensure menu stays open when hovered
+        menuLogo.addEventListener("mouseenter", () => {
+            overlayMenu.style.display = "flex";
+        });
+
+        overlayMenu.addEventListener("mouseenter", () => {
+            overlayMenu.style.display = "flex";
+        });
+
+        overlayMenu.addEventListener("mouseleave", () => {
+            setTimeout(() => {
+                if (!overlayMenu.matches(":hover") && !menuLogo.matches(":hover")) {
+                    overlayMenu.style.display = "none";
+                }
+            }, 200); // Small delay to avoid flickering
+        });
+    }
+});
 
     // Exhibition data
 const exhibitions = {
@@ -120,43 +150,11 @@ const exhibitions = {
     }
 };
 
-    // Load exhibition content
-window.loadExhibition = function(exhibitionKey) {
+// ✅ Load Exhibitions
+window.loadExhibition = function (exhibitionKey) {
     const exhibition = exhibitions[exhibitionKey];
     if (!exhibition) return;
 
-    // Generate exhibition HTML
-    const html = `
-        <h1 class="exhibition-title">${exhibition.title}</h1>
-        <h2 class="exhibition-subtitle">${exhibition.subtitle}</h2> <!-- New Subtitle -->
-        <div class="related-links">${exhibition.relatedLinks.join(" | ")}</div>
-        <div class="additional-images">
-            ${exhibition.images.map(img => `
-                <div class="additional-image">
-                    <img src="${img.src}" alt="${img.info}">
-                    <div class="image-info">${img.info}</div>
-                </div>
-            `).join("")}
-        </div>
-    `;
-
-    // Set content and display it
-    exhibitionContent.innerHTML = html;
-    exhibitionContent.style.display = "block";
-    overlayMenu.style.display = "none";
-    document.getElementById("backgroundVideo").style.display = "none";
-    
-    // Add class to exhibition content wrapper for styling
-    exhibitionContent.classList.add("exhibition-content-active");
-};
-});
-
-// Function to load exhibition content
-window.loadExhibition = function(exhibitionKey) {
-    const exhibition = exhibitions[exhibitionKey];
-    if (!exhibition) return;
-
-    // Generate exhibition HTML
     const html = `
         <h1 class="exhibition-title">${exhibition.title}</h1>
         <h2 class="exhibition-subtitle">${exhibition.subtitle}</h2>
@@ -171,99 +169,55 @@ window.loadExhibition = function(exhibitionKey) {
         </div>
     `;
 
-    // Set content and display it
     exhibitionContent.innerHTML = html;
     exhibitionContent.style.display = "block";
     overlayMenu.style.display = "none";
     document.getElementById("backgroundVideo").style.display = "none";
     exhibitionContent.classList.add("exhibition-content-active");
 };
-// Press data
-const pressArticles = [
-    {
-        year: "2024",
-        title: "Review: Skin in craters like the moon",
-        link: "https://www.circuit.org.nz/writing-and-podcast/skin-in-craters-like-the-moon",
-        description: "Reviewed by Samuel Te Kani, CIRCUIT Artist Moving Image"
-    },
-    {
-        year: "2024",
-        title: "Satellite Artist Profile",
-        link: "https://www.satellites.co.nz/archive/people/su-su",
-        description: "Satellite, Aotearoa NZ"
-    },
-    {
-        year: "2021",
-        title: "Interview: promising.space",
-        link: "https://www.the-art-paper.com/journal/susu-window-online?srsltid=AfmBOor_wpDmIRnDcCLZUh2ENAzhrtnd1PSrzxC8eKeZXvKXuIxWDalV",
-        description: "In conversation with Bonnie Lee, The Art Paper"
-    }
-];
 
- // Load press content function (as already implemented)
-    function loadPress() {
-        const pressHTML = `
-            <h1 class="exhibition-title">Press</h1>
-            <ul class="press-list">
-                ${pressArticles.map(article => `
-                    <li>${article.year} - <a href="${article.link}" target="_blank">${article.title}</a> - ${article.description}</li>
-                `).join('')}
-            </ul>
-        `;
+// ✅ Load Press
+window.loadPress = function () {
+    const pressHTML = `
+        <h1 class="exhibition-title">Press</h1>
+        <ul class="press-list">
+            ${pressArticles.map(article => `
+                <li>${article.year} - <a href="${article.link}" target="_blank">${article.title}</a> - ${article.description}</li>
+            `).join("")}
+        </ul>
+    `;
 
-        exhibitionContent.innerHTML = pressHTML;
-        exhibitionContent.style.display = "block";
-        overlayMenu.style.display = "none";
-        document.getElementById("backgroundVideo").style.display = "none";
-        exhibitionContent.classList.add("exhibition-content-active");
-    }
+    exhibitionContent.innerHTML = pressHTML;
+    exhibitionContent.style.display = "block";
+    overlayMenu.style.display = "none";
+    document.getElementById("backgroundVideo").style.display = "none";
+    exhibitionContent.classList.add("exhibition-content-active");
+};
 
-    // Load contact content function (improved)
-    function loadContact() {
-        const contactHTML = `
-            <h1 class="exhibition-title">Contact</h1>
-            <ul class="press-list">
-                <li> <a href="mailto:susu.tzucheng@gmail.com">susu.tzucheng@gmail.com</a></li>
-                <li> <a href="https://www.instagram.com/susu_y2k/" target="_blank">@susu_y2k</a></li>
-            </ul>
-        `;
+// ✅ Load Contact Page
+window.loadContact = function () {
+    const contactHTML = `
+        <h1 class="exhibition-title">Contact</h1>
+        <ul class="press-list">
+            <li><a href="mailto:susu.tzucheng@gmail.com">susu.tzucheng@gmail.com</a></li>
+            <li><a href="https://www.instagram.com/susu_y2k/" target="_blank">@susu_y2k</a></li>
+        </ul>
+    `;
 
-        exhibitionContent.innerHTML = contactHTML;
-        exhibitionContent.style.display = "block";
-        overlayMenu.style.display = "none";
-        document.getElementById("backgroundVideo").style.display = "none";
-        exhibitionContent.classList.add("exhibition-content-active");
-    }
+    exhibitionContent.innerHTML = contactHTML;
+    exhibitionContent.style.display = "block";
+    overlayMenu.style.display = "none";
+    document.getElementById("backgroundVideo").style.display = "none";
+    exhibitionContent.classList.add("exhibition-content-active");
+};
 
-    // Assign functions to global window object for menu access
-    window.loadPress = loadPress;
-    window.loadContact = loadContact;
-    
+// ✅ Ensure Mobile Tap Menu Works
 document.addEventListener("DOMContentLoaded", () => {
-    const menuLogo = document.getElementById("menuLogo");
-    const overlayMenu = document.getElementById("overlayMenu");
-
     function toggleMenu() {
-        if (window.innerWidth <= 768) { // Mobile screen
+        if (window.innerWidth <= 768) {
             overlayMenu.style.display = overlayMenu.style.display === "flex" ? "none" : "flex";
         }
     }
 
     menuLogo.addEventListener("click", toggleMenu);
-
-    // For larger screens, keep the hover effect
-    if (window.innerWidth > 768) {
-        menuLogo.addEventListener("mouseenter", () => {
-            overlayMenu.style.display = "flex";
-        });
-
-        document.addEventListener("mousemove", (event) => {
-            const screenWidth = window.innerWidth;
-            const leftQuarterBoundary = screenWidth * 0.25;
-
-            if (event.clientX > leftQuarterBoundary) {
-                overlayMenu.style.display = "none";
-            }
-        });
-    }
 });

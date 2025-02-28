@@ -71,6 +71,45 @@ video#backgroundVideo {
 
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Adjust logo for mobile */
+    .menu-logo {
+        font-size: 1.5em;
+        top: 10px;
+        left: 10px;
+    }
+
+    /* Make menu fullscreen on mobile */
+    .overlay-menu {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.95);
+        display: none;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    /* Align title text */
+    .title-list .title-item {
+        font-size: 1em;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    /* Mobile: Full width content */
+    .exhibition-content {
+        padding: 20px;
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Hide WebM video */
+    video#backgroundVideo {
+        display: none;
+    }
+}
 /* Show overlay menu on hover for all pages */
 .menu-logo:hover + .overlay-menu {
     display: flex; /* Display the menu on hover */
