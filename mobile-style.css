@@ -1,0 +1,298 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Cactus Classical Serif, serif;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    width: 100vw; /* Ensures full width */
+    max-width: 100%; /* Prevents overflow */
+}
+
+/* Background Color Overlay */
+#backgroundOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.1); /* Black with 30% opacity */
+    z-index: -1; /* Ensure it stays behind content but above video */
+}
+
+/* Background Video Styling */
+#mobileBackgroundVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; /* Ensure it's behind everything */
+}
+
+/* Menu Layout */
+.mobile-menu {
+    position: absolute;
+    top: 5vh; /* Adds space from the top */
+    left: 5vw; /* Adds space from the left */
+    width: auto; /* Prevents full width */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items from top */
+    align-items: flex-start; /* Align to the left */
+    padding: 2vh 3vw; /* Adjust padding */
+    text-transform: lowercase;
+    color: mediumaquamarine;
+}
+
+/* LOGO TEXT STYLE - MATCHES PC VERSION */
+.menu-title {
+    font-size: clamp(24px, 3vw, 32px); /* Responsive title */
+    margin-bottom: 3vh; /* Space below title */
+    text-align: left;
+    color: mediumaquamarine;
+    font-weight: normal; /* Remove bold */
+}
+
+
+/* Subtitle (Exhibitions, Video Works, etc.) */
+.menu-subtitle {
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: normal; /* Not bold */
+    margin-top: 2vh; /* Space above subtitles */
+    margin-bottom: 1vh; /* Reduce space below subtitle */
+    text-transform: lowercase;
+    text-align: left;
+    color: mediumaquamarine;
+}
+
+/* Remove ALL Bullet Points Properly */
+ul, ol {
+    list-style: none !important; /* Forces removal */
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Ensure ALL Menu Items Have No Bullets */
+.mobile-menu .title-list,
+.mobile-menu .title-item {
+    list-style: none !important; /* Extra bullet removal */
+    padding: 0;
+    margin: 0;
+}
+
+/* Fix spacing for menu items */
+.mobile-menu .title-item {
+    display: block; /* Ensures proper spacing behavior */
+    font-size: 2vw;
+    margin-bottom: 4vh; /* Adjust spacing between menu items */
+    line-height: 1.5; /* Keeps readability */
+    color: mediumaquamarine;
+    text-decoration: none; /* Remove underline */
+    cursor: pointer;
+}
+
+/* Fix hyperlink colors (remove purple & underline) */
+.mobile-menu a {
+    color: mediumaquamarine; /* Match menu text color */
+    text-decoration: none; /* No underline */
+}
+
+.mobile-menu a:hover {
+    opacity: 0.9; /* Subtle hover effect */
+}
+
+/* Ensure exhibition details have a white background */
+.exhibition-content {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90vw; /* Reduce width slightly to prevent cutoff */
+    max-width: 100%; /* Ensures no overflow */
+    margin: auto; /* Centers the content */
+    padding: 5vh 5vw; /* Adds space for better alignment */    
+    height: 100%;
+    background-color: white; /* Ensure readability */
+    overflow-y: scroll;
+}
+
+.exhibition-content-active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    max-width: 100%;
+}
+
+
+.back-button {
+    position: fixed; /* Keep it in a fixed position */
+    top: 10px; /* Adjust to ensure it's at the very top */
+    left: 10px; /* Slight padding from the left */
+    font-size: 1.2em; /* Slightly larger for visibility */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: mediumaquamarine;
+    font-family: "Cactus Classical Serif", serif; /* Match PC version */
+    z-index: 100; /* Ensure it stays on top of other elements */
+}
+
+/* Mobile-Specific Adjustments */
+@media (max-width: 480px) {
+    .mobile-menu {
+        font-size: 5vw;
+        padding: 5vh 8vw; /* More left/right padding for small screens */
+    }
+
+    .mobile-menu h1 {
+        font-size: 7vw;
+    }
+
+    .mobile-menu .title-item {
+        font-size: 10vw;
+        margin-bottom: 8vh; /* Spacing between items */
+    }
+}
+
+/* Tablet Adjustments */
+@media (min-width: 768px) {
+    .mobile-menu {
+        font-size: 5vw;
+    }
+
+    .mobile-menu h1 {
+        font-size: 5vw;
+    }
+}
+.additional-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center images horizontally */
+    width: 100%;
+}
+
+.additional-images img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto; /* Ensures centering */
+}
+
+
+.image-wrapper {
+    width: 100%; /* Ensure it takes full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Adjust spacing between images */
+}
+
+.image-wrapper img {
+max-width: 100%;
+height: auto;
+display: block;
+}
+
+/* Auto-adjust text size based on screen width */
+.related-links {
+    font-size: clamp(12px, 2vw, 18px);
+    margin-bottom: 4vh;
+    margin-top: 2vh; /* Adds more bottom margin */
+}
+
+/* Remove underline & ensure links match theme */
+.related-links a {
+    text-decoration: none !important;
+    color: mediumaquamarine;
+    display: inline-block; /* Ensures margin applies properly */
+    font-size: inherit; /* Ensures it scales with the parent */
+    margin-bottom: 1vh; /* Adds spacing between links */
+}
+
+/* Optional: Hover effect for better interaction */
+.related-links a:hover {
+    opacity: 0.7;
+}
+
+/* Image Info Text Styling */
+.image-info {
+    font-size: clamp(10px, 1.8vw, 14px); /* Adjusts size dynamically */
+    text-align: center; /* Centers the text */
+    color: #444; /* Slightly softer black for readability */
+    margin-top: 0.5vh; /* Adds space between image and text */
+    line-height: 1.3; /* Improves readability */
+    max-width: 90%; /* Ensures text doesn't stretch too wide */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.exhibition-title {
+    font-size: clamp(32px, 5vw, 60px); /* Responsive size */
+    text-align: center; /* Ensures it stays visible */
+    word-wrap: break-word; /* Wraps long titles instead of overflowing */
+    margin-bottom: 1vh; /* Adds space below */
+  font-family: "Cormorant Garamond", serif;
+}
+
+.exhibition-subtitle {
+    font-size: clamp(16px, 3.5vw, 28px); /* Adjusts size responsively */
+    font-weight: normal;
+    text-align: left
+}
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* ✅ Centers content vertically */
+    align-items: flex-start;
+    height: 100vh;
+    padding: 6vh 5vw;
+    overflow: hidden; /* ✅ Prevents content from pushing the menu up */
+
+}
+
+.video-credit {
+    position: fixed; /* Ensure it stays at the bottom */
+    bottom: 10px; /* Adjust distance from the bottom */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Ensure perfect centering */
+    font-size: clamp(13px, 3vw, 23px); /* Responsive font */
+    color: mediumaquamarine; /* Match general theme */
+    opacity: 0.8;
+    z-index: -1; /* Make sure it's above the video */
+    font-style: italic;
+    font-family: "Cormorant Garamond", serif;
+    text-align: center;
+    width: 90%; /* Ensure it doesn't go too wide */
+}
+
+/* PRESS & CONTACT PAGE STYLING */
+
+/* General Layout for Press & Contact */
+.press-list {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin-top: 3vh; /* Space from title */
+    text-align: left;
+    font-size: 1.1em; /* Adjust readability */
+    line-height: 1.6; /* Improve spacing */
+}
+
+/* Individual Press & Contact Items */
+.press-list li {
+    margin-bottom: 2vh; /* Space between entries */
+}
+
+/* Links inside Press & Contact */
+.press-list a {
+    color: mediumaquamarine; /* Match general theme */
+    text-decoration: none; /* Remove underline */
+    font-weight: normal;
+}
